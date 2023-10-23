@@ -16,19 +16,17 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+               stage('Install Dependencies') {
             steps {
-                script {
-                    sh 'pip install pytest' // Use 'sh' on Unix-based agents
-                }
+                // Install Python and required dependencies
+                bat 'pip install pytest'  // If you have a requirements file
             }
         }
 
         stage('Run Tests') {
             steps {
-                script {
-                    sh 'python test_case.py' // Use 'sh' on Unix-based agents
-                }
+                // Run your test cases using pytest
+                bat 'python3 test_cases.py'
             }
         }
     }
