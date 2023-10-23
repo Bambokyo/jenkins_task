@@ -20,7 +20,6 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Use a virtual environment (Python venv) for isolation
                     bat 'pip install pytest'
                 }
             }
@@ -29,7 +28,6 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // Activate the virtual environment and run pytest
                     bat 'python3 test_case.py'
                 }
             }
