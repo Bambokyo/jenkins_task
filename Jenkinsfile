@@ -10,7 +10,7 @@ pipeline {
                     branches: [[name: 'main']], // Specify your branch name here
                     userRemoteConfigs: [
                         [
-                            url: 'https://github.com/yourusername/your-repo.git' // Specify your GitHub repository URL here
+                            url: 'https://github.com/Bambokyo/jenkins_task.git' // Specify your GitHub repository URL here
                         ]
                     ]
                 ])
