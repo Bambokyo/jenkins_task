@@ -19,7 +19,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Run your test cases using pytest
-                powershell 'python trying.py'
+                powershell 'python3 trying.py'
             }
         }
     }
