@@ -1,16 +1,15 @@
 pipeline {
-    agent any
+    agent { label 'your_agent_label' } // Specify an agent label or name here
 
     stages {
         stage('Checkout') {
             steps {
-                // Check out your source code from GitHub repository and branch
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: 'main']], // Specify your branch name here
+                    branches: [[name: 'main']],
                     userRemoteConfigs: [
                         [
-                            url: 'https://github.com/Bambokyo/jenkins_task.git' // Specify your GitHub repository URL here
+                            url: 'https://github.com/Bambokyo/jenkins_task.git'
                         ]
                     ]
                 ])
@@ -20,7 +19,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    bat 'pip install pytest'
+                    sh 'pip install pytest' // Use 'sh' on Unix-based agents
                 }
             }
         }
@@ -28,7 +27,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    bat 'python3 test_case.py'
+                    sh 'python test_case.py' // Use 'sh' on Unix-based agents
                 }
             }
         }
