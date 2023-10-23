@@ -19,7 +19,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'pip install pytest' // Use 'sh' on Unix-based agents
+                    bat 'pip install pytest' // Use 'sh' on Unix-based agents
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'python test_case.py' // Use 'sh' on Unix-based agents
+                    bat 'python test_case.py' // Use 'sh' on Unix-based agents
                 }
             }
         }
