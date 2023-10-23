@@ -4,29 +4,22 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: 'main']],
-                    userRemoteConfigs: [
-                        [
-                            url: 'https://github.com/Bambokyo/jenkins_task.git'
-                        ]
-                    ]
-                ])
+                // Check out your code from your GitHub repository
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Bambokyo/jenkins_task.git']]])
             }
         }
-
-               stage('Install Dependencies') {
+        
+        stage('Install Dependencies') {
             steps {
                 // Install Python and required dependencies
-                sh 'pip install pytest'  // If you have a requirements file
+                bat 'pip install pytest'  // If you have a requirements file
             }
         }
 
         stage('Run Tests') {
             steps {
                 // Run your test cases using pytest
-                sh 'python3 test_cases.py'
+                bat 'python trying.py'
             }
         }
     }
