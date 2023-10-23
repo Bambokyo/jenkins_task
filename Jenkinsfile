@@ -12,14 +12,14 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Python and required dependencies
-                powershell 'pip install pytest'  // If you have a requirements file
+                sh 'pip install pytest'  // If you have a requirements file
             }
         }
 
         stage('Run Tests') {
             steps {
                 // Run your test cases using pytest
-                powershell 'python3 trying.py'
+                sh 'python3 trying.py'
             }
         }
     }
