@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'your_agent_label' } // Specify an agent label or name here
+    agent any
 
     stages {
         stage('Checkout') {
